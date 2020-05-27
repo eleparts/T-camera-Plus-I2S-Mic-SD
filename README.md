@@ -1,36 +1,35 @@
-# ADMP441 MEMS I2S sample for ESP32
+# T-camera-Plus I2S Mic recording & save SDcard  
+  
+T-camera-Plus 개발보드의 MSM261S4030H0 MEMS 마이크 모듈 음성 녹음 및 SD카드 저장 예제입니다.  
+  
+## Mic Schematic  
+  
+MSM261S4030H0 MEMS 마이크 모듈  
+  
+|MSM261S4030H0|ESP32/I2S|
+|-------------|---------|
+|WS           |IO25     |
+|SD           |IO22     |
+|SCK          |IO26     |
 
-## Breakout Board
+## SD card Schematic  
 
-Purchased from [OSHPark](https://oshpark.com/shared_projects/ypqAU3CH) via https://github.com/SamEA/ADMP441_Microphone.git
+SD카드  
 
-### BOM
-![OSHPark](https://raw.githubusercontent.com/SamEA/ADMP441_Microphone/master/ADMP441%20Breakout%20Board%20Top.png)
+|SDcard|ESP32/SPI|
+|--------|-------|
+|MISO    |IO22   |
+|MOSI    |IO19   |
+|SCLK    |IO21   |
+|CS      |IO0    |
 
-1. R1 - 100kOhm
-2. C1 - 100nF
-3. U1 - ADMP441 MEMS desoldered from Amazon Dash
+## Usage  
 
-## ESP32
+저장된 파일은 SC카드에 track.pcm로 저장되며, PC환경에서 재생을 해야하는 경우 별도로 컨버팅을 해 주어야 합니다.  
 
-|ADMP441|ESP32|
-|-------|-----|
-|WS     |IO25 |
-|SD     |IO22 |
-|SCK    |IO26 |
-|VCC    |3.3V |
-|GND    |GND  |
-
-Wire SD card to VSPI and CS=21
-
-## Usage
-
-Dumps I2S PCM data to track.i2s on SD card.
-
-Run,
-
+ffmpeg를 설치 후 아래 명령어로 wav파일로 변환 가능합니다.  
+  
 ```
-ffmpeg -f s32le -ar 16000 -ac 1 -i track.i2s track.wav
+ffmpeg -f s32le -ar 16000 -ac 1 -i track.pcm track.wav
 ```
-
-to convert to a WAV file.  QED.
+  
