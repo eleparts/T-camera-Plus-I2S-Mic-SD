@@ -10,9 +10,9 @@ MSM261S4030H0 MEMS 마이크 모듈 GPIO
   
 |MSM261S4030H0|ESP32/I2S|
 |-------------|---------|
-|WS           |IO 25    |
-|SD           |IO 22    |
-|SCK          |IO 26    |
+|WS           |IO 32    |
+|SD           |IO 33    |
+|SCK          |IO 14    |
 
 ## SD card Schematic  
 
