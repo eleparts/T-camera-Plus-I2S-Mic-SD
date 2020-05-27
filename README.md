@@ -2,7 +2,7 @@
   
 T-camera-Plus 개발보드의 MSM261S4030H0 MEMS 마이크 모듈 음성 녹음 및 SD카드 저장 예제입니다.  
   
-![Prototype](https://raw.githubusercontent.com/eleparts/T-camera-Plus-I2S-Mic-SD/master/img/T-camera-Plus.jpg)  
+<img src="https://raw.githubusercontent.com/eleparts/T-camera-Plus-I2S-Mic-SD/master/img/T-camera-Plus.jpg" width="50%"></img>
 
 ## Mic Schematic  
   
