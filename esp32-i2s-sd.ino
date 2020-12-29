@@ -18,7 +18,7 @@ File f;
 void setup()
 {
 	Serial.begin(115200);
-  SPI.begin(SPI_SCLK_PIN, SPI_MISO_PIN, SPI_MOSI_PIN);
+	SPI.begin(SPI_SCLK_PIN, SPI_MISO_PIN, SPI_MOSI_PIN);
 
 	i2s_config_t i2s_config;
 	i2s_config.mode = (i2s_mode_t) (I2S_MODE_MASTER | I2S_MODE_RX);
@@ -42,17 +42,17 @@ void setup()
 
 	i2s_start(I2S_NUM_1);
 
-  if(!SD.begin(SD_CS)){
-    Serial.println("SD init Fail");  
-    return;
-  }
-  
-  Serial.println("SD init Success");
-  f = SD.open("/track.pcm", FILE_WRITE);
-  // PCM file 
-  // ffmpeg -f s32le -ar 16000 -ac 1 -i track.pcm track.wav
-  
-  Serial.println("file OPEN, Start record (16s)");
+	if(!SD.begin(SD_CS)){
+		Serial.println("SD init Fail");  
+		return;
+	}
+	
+	Serial.println("SD init Success");
+	f = SD.open("/track.pcm", FILE_WRITE);
+	// PCM file 
+	// ffmpeg -f s32le -ar 16000 -ac 1 -i track.pcm track.wav
+	
+	Serial.println("file OPEN, Start record (16s)");
 }
 
 void loop()
